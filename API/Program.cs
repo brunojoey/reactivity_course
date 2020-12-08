@@ -13,6 +13,7 @@ namespace API
     {
         public static void Main(string[] args)
         {
+            // CS files look for the Main host which in this case, is to create the host builder
             CreateHostBuilder(args).Build().Run();
         }
 

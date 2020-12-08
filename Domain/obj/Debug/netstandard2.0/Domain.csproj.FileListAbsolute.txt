@@ -1,0 +1,9 @@
+/Users/josephbruno/reactivity_course/Domain/bin/Debug/netstandard2.0/Domain.deps.json
+/Users/josephbruno/reactivity_course/Domain/bin/Debug/netstandard2.0/Domain.dll
+/Users/josephbruno/reactivity_course/Domain/bin/Debug/netstandard2.0/Domain.pdb
+/Users/josephbruno/reactivity_course/Domain/obj/Debug/netstandard2.0/Domain.csprojAssemblyReference.cache
+/Users/josephbruno/reactivity_course/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfoInputs.cache
+/Users/josephbruno/reactivity_course/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfo.cs
+/Users/josephbruno/reactivity_course/Domain/obj/Debug/netstandard2.0/Domain.csproj.CoreCompileInputs.cache
+/Users/josephbruno/reactivity_course/Domain/obj/Debug/netstandard2.0/Domain.dll
+/Users/josephbruno/reactivity_course/Domain/obj/Debug/netstandard2.0/Domain.pdb

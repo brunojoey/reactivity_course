@@ -1,0 +1,14 @@
+/Users/josephbruno/reactivity_course/Application/bin/Debug/netstandard2.0/Application.deps.json
+/Users/josephbruno/reactivity_course/Application/bin/Debug/netstandard2.0/Application.dll
+/Users/josephbruno/reactivity_course/Application/bin/Debug/netstandard2.0/Application.pdb
+/Users/josephbruno/reactivity_course/Application/bin/Debug/netstandard2.0/Domain.dll
+/Users/josephbruno/reactivity_course/Application/bin/Debug/netstandard2.0/Persistence.dll
+/Users/josephbruno/reactivity_course/Application/bin/Debug/netstandard2.0/Domain.pdb
+/Users/josephbruno/reactivity_course/Application/bin/Debug/netstandard2.0/Persistence.pdb
+/Users/josephbruno/reactivity_course/Application/obj/Debug/netstandard2.0/Application.csprojAssemblyReference.cache
+/Users/josephbruno/reactivity_course/Application/obj/Debug/netstandard2.0/Application.AssemblyInfoInputs.cache
+/Users/josephbruno/reactivity_course/Application/obj/Debug/netstandard2.0/Application.AssemblyInfo.cs
+/Users/josephbruno/reactivity_course/Application/obj/Debug/netstandard2.0/Application.csproj.CoreCompileInputs.cache
+/Users/josephbruno/reactivity_course/Application/obj/Debug/netstandard2.0/Application.csproj.CopyComplete
+/Users/josephbruno/reactivity_course/Application/obj/Debug/netstandard2.0/Application.dll
+/Users/josephbruno/reactivity_course/Application/obj/Debug/netstandard2.0/Application.pdb

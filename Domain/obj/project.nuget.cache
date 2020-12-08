@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fzKUCdGnT0285bj3lXm6A9qpPqk5xBWsC2HWDQl6ElAZlQq415MElvdFqaT/9Rp9m0NKoFVzejClf8rdKQ+uAg==",
+  "dgSpecHash": "BiVx/TjLB88WLYdjdOQDyn+0UOPIEYvobe64zSp4ijBuI2KeqWmxmlsO6Bvverdapb46Qxgjg/NMToRj3SkNPw==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/Domain/Domain.csproj",
-  "expectedPackageFiles": [
-    "/Users/josephbruno/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
