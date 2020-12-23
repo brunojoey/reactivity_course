@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ca80l/eq942mNEa1RMV1QIcJuZQ1OEIW3h3vcaL2XowECHTqLmP7f3bwx97YLwUGleRiynKnm6SzKKTWbHmp5w==",
+  "dgSpecHash": "C2pxH2CJkeUzCngGFbfuqrlancG3m/ySgK18A9Y89+a9DWLjNw+y0N+Y9EZ3Pu3pcHAGfqI6Pd/mZEde/loAGA==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/Application/Application.csproj",
   "expectedPackageFiles": [
+    "/Users/josephbruno/.nuget/packages/mediatr/9.0.0/mediatr.9.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/9.0.0/mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.data.sqlite.core/3.1.10/microsoft.data.sqlite.core.3.1.10.nupkg.sha512",

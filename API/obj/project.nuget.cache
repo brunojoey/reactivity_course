@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ijji4bw/HFT9PSxXvg9sj/+PWG7YLvBfTzKvfdZ3OrnO6/pQIKdUR0dOD+YWPpt1qXHG3jygSMonGTQPyS/PAg==",
+  "dgSpecHash": "NC59Utsys9Iwow3DpUXmJvqdaEKutxp4niGMWg0t/084a2VST2MOIEB6geZnyEb8z9h8mTWOEcRXPKqj3tDzJA==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/API/API.csproj",
   "expectedPackageFiles": [
+    "/Users/josephbruno/.nuget/packages/mediatr/9.0.0/mediatr.9.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/9.0.0/mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
