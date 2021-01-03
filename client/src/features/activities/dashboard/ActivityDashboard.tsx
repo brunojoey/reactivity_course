@@ -7,16 +7,24 @@ import ActivityList from "./ActivityList";
 
 interface IProps {
   activities: IActivity[];
+  selectActivity: (id: String) => void;
+  selectedActivity: IActivity | null;
+  // | null will override the type safety. Wil define it as an activity or null. If not there, the App tsx will sohw an error
+
 }
 
-const ActivityDashboard: React.FC<IProps> = ({ activities }) => {
+const ActivityDashboard: React.FC<IProps> = ({
+  activities,
+  selectActivity,
+  selectedActivity,
+}) => {
   return (
     <Grid>
       <Grid.Column width={10}>
-        <ActivityList activities={activities}/>
+        <ActivityList activities={activities} selectActivity={selectActivity} />
       </Grid.Column>
       <Grid.Column width={6}>
-        <ActivityDetails />
+        {selectedActivity && <ActivityDetails activity={selectedActivity} />}
         <ActivityForm />
       </Grid.Column>
     </Grid>

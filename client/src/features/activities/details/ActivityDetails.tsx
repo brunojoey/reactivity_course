@@ -1,10 +1,15 @@
 import { Card, Image, Button } from "semantic-ui-react";
+import { IActivity } from "../../../app/models/activity";
 
-const ActivityDetails = () => {
+interface IProps {
+  activity: IActivity;
+}
+
+const ActivityDetails: React.FC<IProps> = ({activity}) => {
   return (
     <Card fluid>
       <Image
-        src='/assets/placeholder.png'
+        src={`/assets/categoryImages/${activity.category}.jpg`}
         wrapped
         ui={false}
       />
