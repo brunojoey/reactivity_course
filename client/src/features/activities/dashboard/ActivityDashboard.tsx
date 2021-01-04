@@ -10,13 +10,18 @@ interface IProps {
   selectActivity: (id: String) => void;
   selectedActivity: IActivity | null;
   // | null will override the type safety. Wil define it as an activity or null. If not there, the App tsx will sohw an error
-
+  setSelectedActivity: (activity: IActivity | null) => void;
+  editMode: boolean;
+  setEditMode: (editMode: boolean) => void;
 }
 
 const ActivityDashboard: React.FC<IProps> = ({
   activities,
   selectActivity,
   selectedActivity,
+  setSelectedActivity,
+  editMode,
+  setEditMode,
 }) => {
   return (
     <Grid>
@@ -24,8 +29,17 @@ const ActivityDashboard: React.FC<IProps> = ({
         <ActivityList activities={activities} selectActivity={selectActivity} />
       </Grid.Column>
       <Grid.Column width={6}>
-        {selectedActivity && <ActivityDetails activity={selectedActivity} />}
-        <ActivityForm />
+        {selectedActivity && !editMode && (
+          <ActivityDetails
+            activity={selectedActivity}
+            setEditMode={setEditMode}
+            setSelectedActivity={setSelectedActivity}
+          />
+        )}
+        {editMode && (
+          <ActivityForm setEditMode={setEditMode} activity={selectedActivity!} />
+          // ! after selectedActivity bypasses a warning from TypeScript. 
+        )}
       </Grid.Column>
     </Grid>
   );
