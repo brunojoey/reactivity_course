@@ -24,6 +24,7 @@ const Activities = {
   delete: (id: string) => requests.delete(`/activities/${id}`)
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   Activities
 };
