@@ -1,4 +1,6 @@
+using API.Middleware;
 using Application.Activities;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,7 +24,13 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(cfg => 
+                {
+                    // This looks for all validators in the Create class and registers them.
+                    cfg.RegisterValidatorsFromAssemblyContaining<Create>();
+                });
+
             services.AddDbContext<DataContext>(opt => {
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
@@ -38,15 +46,18 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                // Commented out to use our middleware
+                // app.UseDeveloperExceptionPage();
             } else {
-
+                // app.UseHsts();
             }
 
             app.UseCors("CorsPolicy");
-            app.UseHttpsRedirection();
+            app.UseMvc();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 

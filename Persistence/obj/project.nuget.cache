@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xqVgBhHmLm9x323n0y9yUik40NsQhMRog7xxqHUnXrKgkkkmQyb2Lt0QzlRPBB8db6o8UTpD4xZ3eELjGtJXHA==",
+  "dgSpecHash": "Y+iqmSkx7/SLvKvR76K6l2CMWSmKZLKVtz9ao6RsSh8MxdaTChUhKbKIjLg5k8wb3SuqktXRSEHXxS5eh+Gqog==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/Persistence/Persistence.csproj",
   "expectedPackageFiles": [
@@ -29,17 +29,16 @@
     "/Users/josephbruno/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.2/sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/sqlitepclraw.core/2.0.2/sqlitepclraw.core.2.0.2.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.0.2/sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.0.2/sqlitepclraw.provider.e_sqlite3.2.0.2.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/sqlitepclraw.provider.dynamic_cdecl/2.0.2/sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.collections.immutable/1.7.1/system.collections.immutable.1.7.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.componentmodel.annotations/4.7.0/system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.runtime.compilerservices.unsafe/4.7.1/system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.text.encodings.web/4.7.1/system.text.encodings.web.4.7.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.text.json/4.7.2/system.text.json.4.7.2.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    "/Users/josephbruno/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
   ],
   "logs": []
 }
