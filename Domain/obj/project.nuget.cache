@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "u5pFFkYhrLk/O3HrADU5jDQJo20rD4c/aGHXez81Wzhfu9hP+spE4jOC/lBMVpkembyDnFszRLD9O0CUmOrkDQ==",
+  "dgSpecHash": "yHp7+enMCNfn4D5knX3myk+ZOSZWWkFYAC+7mW8t7aCFhZzc/29OH+C+2wtOLhTrtom+5KIf09WuKDjYc6dJYw==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/Domain/Domain.csproj",
   "expectedPackageFiles": [
-    "/Users/josephbruno/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
   ],
   "logs": []
 }

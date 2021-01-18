@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Y+iqmSkx7/SLvKvR76K6l2CMWSmKZLKVtz9ao6RsSh8MxdaTChUhKbKIjLg5k8wb3SuqktXRSEHXxS5eh+Gqog==",
+  "dgSpecHash": "v5cPNc/gXxinD/fk54FCepqo4MCVApdmKBaKtWKY/xZyXyDyzNkVMvS9P8TvredRDe2P/bXqge3UP7dfNo0pIg==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/Persistence/Persistence.csproj",
   "expectedPackageFiles": [
@@ -34,11 +34,8 @@
     "/Users/josephbruno/.nuget/packages/system.componentmodel.annotations/4.7.0/system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/system.runtime.compilerservices.unsafe/4.7.1/system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/system.text.encodings.web/4.7.1/system.text.encodings.web.4.7.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.text.json/4.7.2/system.text.json.4.7.2.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
   ],
   "logs": []
 }
