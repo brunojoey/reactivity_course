@@ -1,7 +1,7 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
-import { v4 as uuid } from "uuid";
+// import { v4 as uuid } from "uuid";
 import ActivityStore from "../../../app/stores/activityStore";
 import { observer } from "mobx-react-lite";
 import { RouteComponentProps } from "react-router-dom";
@@ -10,6 +10,7 @@ import TextInput from "../../../app/common/form/TextInput";
 import TextAreaInput from "../../../app/common/form/TextAreaInput";
 import SelectInput from "../../../app/common/form/SelectInput";
 import { category } from "../../../app/common/options/cateogoryOptions";
+import DateInput from "../../../app/common/form/DateInput";
 
 interface DetailParams {
   id: string;
@@ -22,8 +23,8 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
   const activityStore = useContext(ActivityStore);
   const {
     activity: initialFormState,
-    createActivity,
-    editActivity,
+    // createActivity,
+    // editActivity,
     submitting,
     loadActivity,
     clearActivity,
@@ -34,7 +35,7 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
     title: "",
     category: "",
     description: "",
-    date: "",
+    date: null,
     city: "",
     venue: "",
   });
@@ -106,10 +107,10 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
                   value={activity.category}
                 />
                 <Field
-                  component={TextInput}
+                  component={DateInput}
                   name="date"
                   placeholder="Date"
-                  value={activity.date}
+                  value={activity.date!}
                 />
                 <Field
                   component={TextInput}
