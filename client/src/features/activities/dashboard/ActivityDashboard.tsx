@@ -1,9 +1,9 @@
+import { useContext, useEffect } from "react";
 import ActivityList from "./ActivityList";
 import ActivityStore from '../../../app/stores/activityStore';
+import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { Grid } from "semantic-ui-react";
 import { observer } from "mobx-react-lite";
-import { useContext, useEffect } from "react";
-import LoadingComponent from "../../../app/layout/LoadingComponent";
 
 const ActivityDashboard: React.FC = () => {
   const activityStore = useContext(ActivityStore);

@@ -1,4 +1,3 @@
-// import React from "react";
 import { FieldRenderProps } from "react-final-form";
 import { Form, FormFieldProps, Label } from "semantic-ui-react";
 import { DateTimePicker } from 'react-widgets';
@@ -12,6 +11,8 @@ const DateInput: React.FC<IProps> = ({
   input,
   width,
   placeholder,
+  date = false,
+  time = false,
   meta: { touched, error },
   // Will give access to the rest of the properties of the DateTimePicker
   ...rest
@@ -23,6 +24,10 @@ const DateInput: React.FC<IProps> = ({
         placeholder={placeholder}
         value={input.value || null}
         onChange={input.onChange}
+        onBlur={input.onBlur}
+        onKeyDown={(event) => event.preventDefault()}
+        date={date}
+        time={time}
         {...rest}
       />
     {touched && error && (
