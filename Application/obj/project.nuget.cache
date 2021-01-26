@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8NmJGqyI0etAlPXJtBIsgZzGWdNz9h9NofF/fGkUes9WRhjKJwv7u4HSOh96FLaXGyIo/Pk6/3mRE7YxOhwqvA==",
+  "dgSpecHash": "RfK+7wXe/61X2aPlnuirNm/DcqtSE5q0vDP4rtHMUMQXze245AQEgsgeEMIern8LZhm+mHQy9oWrVR7+Nm8a5g==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/Application/Application.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,9 @@
     "/Users/josephbruno/.nuget/packages/fluentvalidation.dependencyinjectionextensions/8.5.1/fluentvalidation.dependencyinjectionextensions.8.5.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/mediatr/9.0.0/mediatr.9.0.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/9.0.0/mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.cryptography.internal/3.0.0/microsoft.aspnetcore.cryptography.internal.3.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/3.0.0/microsoft.aspnetcore.cryptography.keyderivation.3.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/3.0.0/microsoft.aspnetcore.identity.entityframeworkcore.3.0.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.data.sqlite.core/3.1.10/microsoft.data.sqlite.core.3.1.10.nupkg.sha512",
@@ -27,6 +30,8 @@
     "/Users/josephbruno/.nuget/packages/microsoft.extensions.dependencyinjection/3.1.10/microsoft.extensions.dependencyinjection.3.1.10.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/3.1.10/microsoft.extensions.dependencyinjection.abstractions.3.1.10.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.extensions.dependencymodel/3.1.6/microsoft.extensions.dependencymodel.3.1.6.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/microsoft.extensions.identity.core/3.0.0/microsoft.extensions.identity.core.3.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/microsoft.extensions.identity.stores/3.0.0/microsoft.extensions.identity.stores.3.0.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.extensions.logging/3.1.10/microsoft.extensions.logging.3.1.10.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.10/microsoft.extensions.logging.abstractions.3.1.10.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.extensions.options/3.1.10/microsoft.extensions.options.3.1.10.nupkg.sha512",

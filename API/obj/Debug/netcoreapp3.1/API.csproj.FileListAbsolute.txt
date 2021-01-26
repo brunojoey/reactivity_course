@@ -70,3 +70,9 @@
 /Users/josephbruno/reactivity_course/API/bin/Debug/netcoreapp3.1/FluentValidation.AspNetCore.dll
 /Users/josephbruno/reactivity_course/API/bin/Debug/netcoreapp3.1/FluentValidation.DependencyInjectionExtensions.dll
 /Users/josephbruno/reactivity_course/API/obj/Debug/netcoreapp3.1/API.MvcApplicationPartsAssemblyInfo.cs
+/Users/josephbruno/reactivity_course/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/josephbruno/reactivity_course/API/bin/Debug/netcoreapp3.1/API.StaticWebAssets.xml
+/Users/josephbruno/reactivity_course/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+/Users/josephbruno/reactivity_course/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+/Users/josephbruno/reactivity_course/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
+/Users/josephbruno/reactivity_course/API/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
