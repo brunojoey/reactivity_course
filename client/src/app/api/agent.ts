@@ -3,6 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import { IActivity } from '../models/activity';
 import { toast } from 'react-toastify';
 import { history } from '../..';
+import { IUser, IUserFormValues } from '../models/user';
 // '../../' is leading to the index file
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
@@ -45,7 +46,14 @@ const Activities = {
   delete: (id: string) => requests.delete(`/activities/${id}`)
 };
 
+const User = {
+  current: (): Promise<IUser> => requests.get("/user"),
+  login: (user: IUserFormValues): Promise<IUser> => requests.post(`/user/login/`, user),
+  register: (user: IUserFormValues): Promise<IUser> => requests.post(`/user/register/`, user)
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  Activities
+  Activities,
+  User
 };

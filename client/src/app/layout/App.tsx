@@ -10,6 +10,7 @@ import { observer } from "mobx-react-lite";
 import { Route, Switch, RouteComponentProps, withRouter } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import "./styles.css";
+import LoginForm from "../../features/user/LoginForm";
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
   return (
@@ -31,6 +32,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                   path={["/createActivity", "/manage/:id"]}
                   component={ActivityForm}
                 />
+                <Route path='/login' component={LoginForm} />
                 <Route component={NotFound} />
               </Switch>
             </Container>
