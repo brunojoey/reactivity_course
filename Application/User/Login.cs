@@ -2,6 +2,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Errors;
+using Application.Interfaces;
 using Domain;
 using FluentValidation;
 using MediatR;
@@ -30,8 +31,10 @@ namespace Application.User
     {
       private readonly UserManager<AppUser> _userManager;
       private readonly SignInManager<AppUser> _signInManager;
-      public Handler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+      private readonly IJwtGenerator _jwtGenerator;
+      public Handler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IJwtGenerator jwtGenerator)
       {
+        _jwtGenerator = jwtGenerator;
         _signInManager = signInManager;
         _userManager = userManager;
 
@@ -41,25 +44,25 @@ namespace Application.User
       public async Task<User> Handle(Query request,
         CancellationToken cancellationToken)
       {
-          var user = await _userManager.FindByEmailAsync(request.Email);
+        var user = await _userManager.FindByEmailAsync(request.Email);
 
-          if (user == null)
-            throw new RestException(HttpStatusCode.Unauthorized);
+        if (user == null)
+          throw new RestException(HttpStatusCode.Unauthorized);
 
         var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
         if (result.Succeeded)
         {
-            // Eventually: Generate Token to user
-            return new User
-            {
-                DisplayName = user.DisplayName,
-                Token = "This will be a token.",
-                Username = user.UserName,
-                Image = null
-            };
+          // Eventually: Generate Token to user
+          return new User
+          {
+            DisplayName = user.DisplayName,
+            Token = _jwtGenerator.CreateToken(user),
+            Username = user.UserName,
+            Image = null
+          };
         }
-            throw new RestException(HttpStatusCode.Unauthorized);
+        throw new RestException(HttpStatusCode.Unauthorized);
       }
     }
   }

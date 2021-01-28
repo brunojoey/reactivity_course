@@ -7,4 +7,4 @@ namespace Domain
         // Name of the user which will be displayed
         public string DisplayName { get; set; }
     }
-}
+};

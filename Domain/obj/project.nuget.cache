@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uWP6p/qpLv6kXR2n1MK7iT1e9wew1a74ZNHFM82+JwjpUiOK/HgykoSOeW6xpSXVZWq/uRCHEmpcdJwbfJbRdA==",
+  "dgSpecHash": "42I6ntSf5sUYt4bQyu/Tcf4ANb4FUIRCiJiWtS3J5SuMMvXx9f5/KiwUpGOVqV2nk5Fo3X+yySNWNmPp/WMcDg==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/Domain/Domain.csproj",
   "expectedPackageFiles": [
@@ -28,7 +28,8 @@
     "/Users/josephbruno/.nuget/packages/system.componentmodel.annotations/4.6.0/system.componentmodel.annotations.4.6.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.diagnostics.diagnosticsource/4.6.0/system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.threading.tasks.extensions/4.5.2/system.threading.tasks.extensions.4.5.2.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
+    "/Users/josephbruno/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
   ],
   "logs": []
 }

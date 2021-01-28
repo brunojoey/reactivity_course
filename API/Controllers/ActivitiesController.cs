@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Domain;
 using Application.Activities;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -20,6 +21,7 @@ namespace API.Controllers
 
     // Gets the id from this get method. 
     [HttpGet("{id}")]
+    [Authorize] // Any request that comes through the Details route, will need to be authorized. Other wise a 401 not authrozized error comes up
     public async Task<ActionResult<Activity>> Details(Guid id)
     {
       // will have access to the id due to the http get parameter
