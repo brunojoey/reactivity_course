@@ -10,7 +10,7 @@ import 'react-widgets/dist/css/react-widgets.css';
 import "./app/layout/styles.css";
 import "semantic-ui-css/semantic.min.css";
 
-dateFnsLocalizer();
+// dateFnsLocalizer();
 
 export const history = createBrowserHistory();
 

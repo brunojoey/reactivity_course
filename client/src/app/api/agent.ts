@@ -2,11 +2,18 @@
 import axios, { AxiosResponse } from 'axios';
 import { IActivity } from '../models/activity';
 import { toast } from 'react-toastify';
-import { history } from '../..';
+import { history } from '../..'; // '../../' is leading to the index file
 import { IUser, IUserFormValues } from '../models/user';
-// '../../' is leading to the index file
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
+
+axios.interceptors.request.use((config) => {
+  const token = window.localStorage.getItem('jwt'); // check to see if we have a token
+  if (token) config.headers.Authorization = `Bearer ${token}`; // attach token to autorization header and come out as Bearer token
+  return config;
+}, error => {
+  return Promise.reject(error);
+});
 
 axios.interceptors.response.use(undefined, error => {
   if (error.message === "Network Error" && !error.response) {

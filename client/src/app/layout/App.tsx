@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import NavBar from "../../features/nav/NavBar";
 import HomePage from "../../features/home/HomePage";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
@@ -11,10 +11,28 @@ import { Route, Switch, RouteComponentProps, withRouter } from "react-router-dom
 import { ToastContainer } from 'react-toastify';
 import "./styles.css";
 import LoginForm from "../../features/user/LoginForm";
+import { RootStoreContext } from "../stores/rootStore";
+import LoadingComponent from "./LoadingComponent";
+import ModalContainer from "../common/modals/ModalContainer";
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
+  const rootStore = useContext(RootStoreContext);
+  const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
+  const {getUser} = rootStore.userStore;
+
+  useEffect(() => {
+    if (token) {
+      getUser().finally(() => setAppLoaded());
+    } else {
+      setAppLoaded();
+    }
+  }, [getUser, setAppLoaded, token]);
+
+  if (!appLoaded) return <LoadingComponent content='Loading App...' />
+
   return (
     <Fragment>
+      <ModalContainer />
       <ToastContainer position='bottom-right'/>
       <Route exact path="/" component={HomePage} />
       {/* This path is for redirecting to a page that is anything other than the home page. To Render the home page outside the navbar */}
