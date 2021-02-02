@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import { Segment, Header, Form, Button, Comment } from "semantic-ui-react";
 
 const ActivityDetailChat = () => {

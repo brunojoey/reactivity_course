@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import NavBar from "../../features/nav/NavBar";
 import HomePage from "../../features/home/HomePage";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";

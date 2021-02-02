@@ -1,3 +1,4 @@
+import React from 'react';
 import { IActivity } from "../../../app/models/activity";
 import { format } from "date-fns";
 import { observer } from "mobx-react-lite";

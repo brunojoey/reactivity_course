@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import ActivityListItem from "./ActivityListItem";
 import { observer } from "mobx-react-lite";
 import { Item, Label } from "semantic-ui-react";

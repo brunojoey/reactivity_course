@@ -12,6 +12,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-widgets": "^4.4.3",
+    "@types/revalidate": "^1.1.2",
     "@types/uuid": "^8.3.0",
     "axios": "^0.19.2",
     "date-fns": "^2.15.0",
@@ -56,8 +57,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/revalidate": "^1.1.2"
   }
 }

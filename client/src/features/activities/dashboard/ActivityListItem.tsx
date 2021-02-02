@@ -1,3 +1,4 @@
+import React from 'react';
 import { IActivity } from "../../../app/models/activity";
 import { Link } from "react-router-dom";
 import { format } from 'date-fns';
