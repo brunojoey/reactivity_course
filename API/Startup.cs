@@ -2,6 +2,7 @@ using System.Text;
 using API.Middleware;
 using Application.Activities;
 using Application.Interfaces;
+using AutoMapper;
 using Domain;
 using FluentValidation.AspNetCore;
 using Infrastructure.Security;
@@ -42,8 +43,8 @@ namespace API
       })
           .AddFluentValidation(cfg =>
           {
-                  // This looks for all validators in the Create class and registers them.
-                  cfg.RegisterValidatorsFromAssemblyContaining<Create>();
+            // This looks for all validators in the Create class and registers them.
+            cfg.RegisterValidatorsFromAssemblyContaining<Create>();
           });
 
       // AddIdentityCore because we can add what we need but it will still Identity App User
@@ -51,6 +52,15 @@ namespace API
       var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
       identityBuilder.AddEntityFrameworkStores<DataContext>();
       identityBuilder.AddSignInManager<SignInManager<AppUser>>();
+      
+      services.AddAuthorization(opt =>
+      {
+        opt.AddPolicy("IsActivityHost", policy =>
+        {
+          policy.Requirements.Add(new IsHostRequirement());
+        });
+      });
+      services.AddTransient<IAuthorizationHandler, IsHostRequirementHandler>();
 
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
 
@@ -69,6 +79,7 @@ namespace API
 
       services.AddDbContext<DataContext>(opt =>
       {
+        opt.UseLazyLoadingProxies();
         opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
       });
       // Allows the API information to get through the CORS block that happens without this. 
@@ -80,6 +91,7 @@ namespace API
         });
       });
       services.AddMediatR(typeof(List.Handler).Assembly);
+      services.AddAutoMapper(typeof(List.Handler));
 
       // Will have access when JWT Tokens are injected
       services.AddScoped<IJwtGenerator, JwtGenerator>();
