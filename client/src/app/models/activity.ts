@@ -9,6 +9,10 @@ export interface IActivity {
   date: any;
   city: string;
   venue: string;
+  // Both bottom two are properties that are specific to the current login user 
+  isGoing: boolean;
+  isHost: boolean;
+  attendees: IAttendee[];
 };
 
 // Partial indicates all the keys we pass in from IActivity will be optional
@@ -32,4 +36,11 @@ export class ActivityFormValues implements IActivityFormValues {
     }
     Object.assign(this, init);
   };
+};
+
+export interface IAttendee {
+  username: string;
+  displayName: string;
+  image: string;
+  isHost: boolean;
 };
