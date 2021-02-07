@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "AqZr5pIDLRtfhi/WEDpc9ub5Dn+XKH5HrmbpCtDuHMYZqiEUjOSKPyVwds4RUSibOxqOGa1w26jx6jqU9oHCdQ==",
+  "dgSpecHash": "XL3MHUPLHSDBIHkurOiDMpjmICCqmso1J+QQC1MsTKN5M0Td2IWkEmm7PIj6c5+UZfWUf0T+1MO8U6wo/mzI9Q==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/API/API.csproj",
   "expectedPackageFiles": [
     "/Users/josephbruno/.nuget/packages/automapper/8.1.1/automapper.8.1.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/6.1.1/automapper.extensions.microsoft.dependencyinjection.6.1.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/castle.core/4.4.0/castle.core.4.4.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/cloudinarydotnet/1.8.0/cloudinarydotnet.1.8.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/fluentvalidation/8.5.1/fluentvalidation.8.5.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/fluentvalidation.aspnetcore/8.5.1/fluentvalidation.aspnetcore.8.5.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/fluentvalidation.dependencyinjectionextensions/8.5.1/fluentvalidation.dependencyinjectionextensions.8.5.1.nupkg.sha512",

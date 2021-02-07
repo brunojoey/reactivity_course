@@ -5,6 +5,7 @@ using Application.Interfaces;
 using AutoMapper;
 using Domain;
 using FluentValidation.AspNetCore;
+using Infrastructure.Photos;
 using Infrastructure.Security;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -97,6 +98,8 @@ namespace API
       services.AddScoped<IJwtGenerator, JwtGenerator>();
       // Will get the username out of the token and able to use it anywhere when we inject it
       services.AddScoped<IUserAccessor, UserAccessor>();
+      services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+      services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
