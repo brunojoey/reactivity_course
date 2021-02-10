@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import NavBar from "../../features/nav/NavBar";
 import HomePage from "../../features/home/HomePage";
+import ProfilePage from '../../features/profiles/ProfilePage';
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
 import ActivityForm from "../../features/activities/form/ActivityForm";
 import ActivityDetails from "../../features/activities/details/ActivityDetails";
@@ -10,7 +11,6 @@ import { observer } from "mobx-react-lite";
 import { Route, Switch, RouteComponentProps, withRouter } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import "./styles.css";
-import LoginForm from "../../features/user/LoginForm";
 import { RootStoreContext } from "../stores/rootStore";
 import LoadingComponent from "./LoadingComponent";
 import ModalContainer from "../common/modals/ModalContainer";
@@ -50,7 +50,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                   path={["/createActivity", "/manage/:id"]}
                   component={ActivityForm}
                 />
-                <Route path='/login' component={LoginForm} />
+                <Route path='/profile/:username' component={ProfilePage} />
                 <Route component={NotFound} />
               </Switch>
             </Container>

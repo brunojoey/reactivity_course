@@ -4,6 +4,7 @@ import { IActivity } from '../models/activity';
 import { toast } from 'react-toastify';
 import { history } from '../..'; // '../../' is leading to the index file
 import { IUser, IUserFormValues } from '../models/user';
+import { IPhoto, IProfile } from '../models/profile';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
@@ -42,7 +43,14 @@ const requests = {
   get: (url: string) => axios.get(url).then(sleep(1000)).then(responseBody),
   post: (url: string, body: {}) => axios.post(url, body).then(sleep(1000)).then(responseBody),
   put: (url: string, body: {}) => axios.put(url,body).then(sleep(1000)).then(responseBody),
-  delete: (url: string) => axios.delete(url).then(sleep(1000)).then(responseBody) 
+  delete: (url: string) => axios.delete(url).then(sleep(1000)).then(responseBody),
+  postForm: (url: string, file: Blob) => {
+    let formData = new FormData();
+    formData.append('File', file); // File is the key. Which needs to match the call of the property in IForm File
+    return axios.post(url , formData, {
+      headers: {'Content-type': 'multipart/form-data'}
+    }).then(responseBody);
+  }
 };
 
 const Activities = {
@@ -61,8 +69,16 @@ const User = {
   register: (user: IUserFormValues): Promise<IUser> => requests.post(`/user/register/`, user)
 }
 
+const Profiles = {
+  get: (username: string): Promise<IProfile> => requests.get(`/profiles/${username}`),
+  uploadPhoto: (photo: Blob): Promise<IPhoto> => requests.postForm('/photos', photo),
+  setMainPhoto: (id: string) => requests.post(`/photos/${id}/setMain`, {}),
+  deletePhoto: (id: string) => requests.delete(`/photos/${id}`)
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   Activities,
-  User
+  User,
+  Profiles
 };
