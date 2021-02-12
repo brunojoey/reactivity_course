@@ -30,12 +30,32 @@ export default class ProfileStore {
       runInAction(() => {
         this.profile = profile;
         this.loadingProfile = false;
-      })
+      });
     } catch (error) {
       runInAction(() => {
         this.loadingProfile = false;
       })
       console.log('error', error)
+    };
+  };
+
+  @action editProfile = async (profile: Partial<IProfile>) => {
+    try {
+      await agent.Profiles.editProfile(profile); // method to call up to the API
+      runInAction("edit profile", () => {
+        // checking if the display name has been updated by comparing it with the user store display name
+        // if updated, we want to update the display name in here
+        if (profile.displayName !== this.rootStore.userStore.user!.displayName) {
+          this.rootStore.userStore.user!.displayName = profile.displayName!;
+        }
+        this.profile = {...this.profile!, ...profile}; 
+        // updating the properties in the profile observable
+        // the spread operator here spreads all properties in the profile object, 
+        // and then overwrite them with the properties contained in the profile properties here
+      });
+    } catch (error) {
+      console.log('error', error);
+      toast.error('Problem updating Profile');
     }
   }
 
