@@ -1,5 +1,7 @@
 using System.Text;
+using System.Threading.Tasks;
 using API.Middleware;
+using API.SignalR;
 using Application.Activities;
 using Application.Interfaces;
 using AutoMapper;
@@ -13,7 +15,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -76,6 +77,20 @@ namespace API
               ValidateAudience = false,
               ValidateIssuer = false
             };
+            opt.Events = new JwtBearerEvents
+            {
+              OnMessageReceived = context =>
+              {
+                var accessToken = context.Request.Query["access_token"];
+                var path = context.HttpContext.Request.Path;
+                if (!string.IsNullOrEmpty(accessToken) && (path.StartsWithSegments("/chat")))
+                // basically checking our token and if it starts with "/chat"
+                {
+                  context.Token = accessToken;
+                }
+                return Task.CompletedTask;
+              }
+            };
           });
 
       services.AddDbContext<DataContext>(opt =>
@@ -88,11 +103,12 @@ namespace API
       {
         opt.AddPolicy("CorsPolicy", policy =>
         {
-          policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+          policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000").AllowCredentials();
         });
       });
       services.AddMediatR(typeof(List.Handler).Assembly);
       services.AddAutoMapper(typeof(List.Handler));
+      services.AddSignalR(); // Does not need any additional configurations
 
       // Will have access when JWT Tokens are injected
       services.AddScoped<IJwtGenerator, JwtGenerator>();
@@ -123,6 +139,7 @@ namespace API
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
+        endpoints.MapHub<ChatHub>("/chat");
       });
     }
   }

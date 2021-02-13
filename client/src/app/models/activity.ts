@@ -13,6 +13,16 @@ export interface IActivity {
   isGoing: boolean;
   isHost: boolean;
   attendees: IAttendee[];
+  comments: IComment[];
+};
+
+export interface IComment {
+  id: string;
+  createdAt: Date;
+  body: string;
+  username: string;
+  displayName: string;
+  image: string;
 };
 
 // Partial indicates all the keys we pass in from IActivity will be optional
