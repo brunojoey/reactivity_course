@@ -20,7 +20,8 @@ const ProfileDescription = () => {
           {isCurrentUser && (
             <Button 
               floated='right'
-              basiccontent={editMode ? 'Cancel' : 'Edit Profile'}
+              basic
+              content={editMode ? 'Cancel' : 'Edit Profile'}
               onClick={() => setEditMode(!editMode)}
             />
           )}

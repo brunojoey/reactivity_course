@@ -4,6 +4,7 @@ using API.Middleware;
 using API.SignalR;
 using Application.Activities;
 using Application.Interfaces;
+using Application.Profiles;
 using AutoMapper;
 using Domain;
 using FluentValidation.AspNetCore;
@@ -115,6 +116,7 @@ namespace API
       // Will get the username out of the token and able to use it anywhere when we inject it
       services.AddScoped<IUserAccessor, UserAccessor>();
       services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+      services.AddScoped<IProfileReader, ProfileReader>(); // We can inject our ProfileReader in other classes
       services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
     }
 

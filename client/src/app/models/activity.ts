@@ -27,7 +27,7 @@ export interface IComment {
 
 // Partial indicates all the keys we pass in from IActivity will be optional
 export interface IActivityFormValues extends Partial<IActivity> {
-  time?: Date
+  time?: Date;
 };
 
 export class ActivityFormValues implements IActivityFormValues {
@@ -53,4 +53,5 @@ export interface IAttendee {
   displayName: string;
   image: string;
   isHost: boolean;
+  following?: boolean;
 };
