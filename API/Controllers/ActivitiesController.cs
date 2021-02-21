@@ -13,10 +13,12 @@ namespace API.Controllers
   {
     // Gets all in the list
     [HttpGet]
-    public async Task<ActionResult<List<ActivityDto>>> List()
+    public async Task<ActionResult<List.ActivitiesEnvelope>> List(int? limit, 
+      int? offset, bool isGoing, bool isHost, DateTime? startDate)
     {
       // Sending a message to our List Query in the Applications Folder
-      return await Mediator.Send(new List.Query());
+      return await Mediator.Send(new List.Query(limit, 
+        offset, isGoing, isHost, startDate));
     }
 
     // Gets the id from this get method. 
