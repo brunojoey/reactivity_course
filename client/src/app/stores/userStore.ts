@@ -19,7 +19,7 @@ export default class UserStore {
       const user = await agent.User.login(values);
       runInAction(() => {
         this.user = user; // assigns user login to user observable
-      }) 
+      });
       this.rootStore.commonStore.setToken(user.token);
       this.rootStore.modalStore.closeModal();
       history.push('/activities');
@@ -36,23 +36,24 @@ export default class UserStore {
       history.push('/activities');
     } catch (error) {
       throw error;
-    }
-  }
+    };
+  };
 
   @action getUser = async () => {
     try {
       const user = await agent.User.current();
       runInAction(() => {
         this.user = user; // the user from the api
-      })
+      });
     } catch (error) {
       console.log('error', error);
-    }
-  }
+    };
+  };
 
   @action logout = () => {
     this.rootStore.commonStore.setToken(null);
     this.user = null;
-  }
+    history.push('/');
+  };
 };
 

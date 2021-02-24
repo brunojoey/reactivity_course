@@ -22,7 +22,7 @@ export class RootStore {
     this.commonStore = new CommonStore(this);
     this.modalStore = new ModalStore(this);
     this.profileStore = new ProfileStore(this);
-  }
+  };
 };
 
 export const RootStoreContext = createContext(new RootStore());

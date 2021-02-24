@@ -34,7 +34,7 @@ namespace Infrastructure.Security
         {
             // All descriptions of the JWT Token.
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.Now.AddDays(7), // Token will expire in 7 days
+            Expires = DateTime.UtcNow.AddMinutes(30), // Token will expire in 30 minutes after use
             SigningCredentials = creds
         };
 

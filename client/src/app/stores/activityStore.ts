@@ -1,5 +1,5 @@
 // Store that loads our activities
-import { action, observable, computed, runInAction, reaction } from "mobx";
+import { action, observable, computed, runInAction, reaction, toJS } from "mobx";
 import { SyntheticEvent } from "react";
 import { toast } from "react-toastify";
 import { history } from "../..";
@@ -72,21 +72,22 @@ export default class ActivityStore {
 
   @action createHubConnection = (activityId: string) => {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl("http://localhost:5000/chat", {
+      .withUrl(process.env.REACT_APP_API_CHAT_URL!, {
         accessTokenFactory: () => this.rootStore.commonStore.token!,
       })
       .configureLogging(LogLevel.Information)
       .build();
 
-    this.hubConnection
+      this.hubConnection
       .start()
-      .then(() =>
-        console.log("Hub Connection State", this.hubConnection!.state))
+      .then(() => console.log("Hub Connection State", this.hubConnection!.state))
       .then(() => {
-        console.log('attempting to join group');
-        this.hubConnection!.invoke('AddToGroup', activityId)
+        // Use an If Statement to work around the "Cannot send data if the connection is not in the Connected state" error
+        if (this.hubConnection!.state === 'Connected') {
+          this.hubConnection!.invoke('AddToGroup', activityId)
+        }
       })
-      .catch((error) => console.log("Error establishing connection: ", error));
+      .catch(error => console.log('Error establishing connection: ', error));
 
       // when we receive a comment
       this.hubConnection.on('ReceiveComment', comment => {
@@ -169,7 +170,7 @@ export default class ActivityStore {
     let activity = this.getActivity(id);
     if (activity) {
       this.activity = activity;
-      return activity;
+      return toJS(activity); // a deep clone to not send back an observable to the ActivityForm, which would cause an error or rerender
     } else {
       this.loadingInitial = true;
       try {

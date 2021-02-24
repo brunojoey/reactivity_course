@@ -6,7 +6,7 @@ import { history } from "../.."; // '../../' is leading to the index file
 import { IUser, IUserFormValues } from "../models/user";
 import { IPhoto, IProfile } from "../models/profile";
 
-axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.request.use(
   (config) => {
@@ -19,13 +19,18 @@ axios.interceptors.request.use(
   }
 );
 
-axios.interceptors.response.use(undefined, (error) => {
+axios.interceptors.response.use(undefined, error => {
   if (error.message === "Network Error" && !error.response) {
     toast.error("Network Error - Make Sure API is running.");
   }
-  const { status, data, config } = error.response;
+  const { status, data, config, headers } = error.response;
   if (status === 404) {
     history.push("/not-found");
+  }
+  if (status === 401 && headers['www-authenticate'].includes('The token expired')) {
+    window.localStorage.removeItem("jwt");
+    history.push("/");
+    toast.info("Your session has expired. Please login again.");
   }
   if (
     status === 400 &&
@@ -43,19 +48,18 @@ axios.interceptors.response.use(undefined, (error) => {
 const responseBody = (response: AxiosResponse) =>
   response ? response.data : [];
 
-const sleep = (ms: number) => (response: AxiosResponse) =>
-  new Promise<AxiosResponse>((resolve) =>
-    setTimeout(() => resolve(response), ms)
-  );
-
 const requests = {
-  get: (url: string) => axios.get(url).then(sleep(1000)).then(responseBody),
+  get: (url: string) => axios.get(url)
+  .then(responseBody),
   post: (url: string, body: {}) =>
-    axios.post(url, body).then(sleep(1000)).then(responseBody),
+    axios.post(url, body)
+    .then(responseBody),
   put: (url: string, body: {}) =>
-    axios.put(url, body).then(sleep(1000)).then(responseBody),
+    axios.put(url, body)
+    .then(responseBody),
   delete: (url: string) =>
-    axios.delete(url).then(sleep(1000)).then(responseBody),
+    axios.delete(url)
+    .then(responseBody),
   postForm: (url: string, file: Blob) => {
     let formData = new FormData();
     formData.append("File", file); // File is the key. Which needs to match the call of the property in IForm File
@@ -69,7 +73,9 @@ const requests = {
 
 const Activities = {
   list: (params: URLSearchParams): Promise<IActivitiesEnvelope> =>
-    axios.get('/activities', {params: params}).then(sleep(1000)).then(responseBody),
+    axios
+      .get("/activities", { params: params })
+      .then(responseBody),
   details: (id: string) => requests.get(`/activities/${id}`),
   create: (activity: IActivity) => requests.post("/activities", activity),
   update: (activity: IActivity) =>
@@ -103,7 +109,7 @@ const Profiles = {
   listFollowings: (username: string, predicate: string) =>
     requests.get(`/profiles/${username}/follow?predicate=${predicate}`),
   listActivities: (username: string, predicate: string) =>
-    requests.get(`/profiles/${username}/activities?predicate=${predicate}`)
+    requests.get(`/profiles/${username}/activities?predicate=${predicate}`),
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
