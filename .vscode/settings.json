@@ -18,7 +18,7 @@
               "description": "SFTP folder",
 
               "host": "167.172.141.151", "port": 22,
-              "user": "root", "password": "e4%Y1?8!l1a",
+              "user": "root", "password": "epassword",
 
               "dir": "/var/reactivity_course",
               "mappings": {
