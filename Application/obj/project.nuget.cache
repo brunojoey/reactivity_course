@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+d+5yGqhxvk/m1ND4KgfgSBZEc7C3Xzv0/EiVjDTwLY1QiDCHMOGogYiKsF6z4Rls/ibfRiVSaI8T6r5fuFRCQ==",
+  "dgSpecHash": "LANJVn8QvTi7xCDrtc6wa+8YuNm/RHyWxzHNf3u9CVezDEFbQrcnPFTix3yLKNKfz5Ao97tCq3VyMDqITiNckQ==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/Application/Application.csproj",
   "expectedPackageFiles": [
@@ -154,9 +154,7 @@
     "/Users/josephbruno/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/microsoft.netcore.app.ref/3.0.0/microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
-    "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+    "/Users/josephbruno/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
