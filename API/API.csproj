@@ -4,14 +4,14 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="3.0.0"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0"/>
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0"/>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0"/>
-    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.0.0"/>
+    <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="2.0.0"/>
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>5e030536-5ab4-4a30-ab70-438473783085</UserSecretsId>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 </Project>

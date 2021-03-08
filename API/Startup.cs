@@ -44,7 +44,6 @@ namespace API
         opt.UseLazyLoadingProxies();
         opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
       });
-
       ConfigureServices(services);
     }
     public void ConfigureProductionServices(IServiceCollection services)
@@ -52,7 +51,7 @@ namespace API
       services.AddDbContext<DataContext>(opt =>
       {
         opt.UseLazyLoadingProxies();
-        opt.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
+        opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
       });
 
       ConfigureServices(services);
@@ -141,21 +140,40 @@ namespace API
       services.AddScoped<IUserAccessor, UserAccessor>();
       services.AddScoped<IPhotoAccessor, PhotoAccessor>();
       services.AddScoped<IProfileReader, ProfileReader>(); // We can inject our ProfileReader in other classes
+      services.AddScoped<IFacebookAccessor, FacebookAcessor>();
       services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
+      services.Configure<FacebookAppSettings>(Configuration.GetSection("Authentication:Facebook"));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       app.UseMiddleware<ErrorHandlingMiddleware>();
+
       if (env.IsDevelopment())
       {
         // Commented out to use our middleware
         // app.UseDeveloperExceptionPage();
+      } else
+      {
+        // app.UseHsts();
       }
 
-      // app.UseHttpsRedirection();
+      app.UseXContentTypeOptions();
+      app.UseReferrerPolicy(opt => opt.NoReferrer());
+      app.UseXXssProtection(opt => opt.EnabledWithBlockMode());
+      app.UseXfo(opt => opt.Deny());
+      app.UseCsp(opt => opt
+        .BlockAllMixedContent()
+        .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "sha256-F4GpCPyRepgP5znjMD8sc7PEjzet5Eef4r09dEGPpTs="))
+        .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "data:"))
+        .FormActions(s => s.Self())
+        .FrameAncestors(s => s.Self())
+        .ImageSources(s => s.Self().CustomSources("blob:", "data:"))
+        .ScriptSources(s => s.Self().CustomSources("sha256-vRtWxzPOhvaAr9sSb+lZUZ+2FXHhdPoYb/74kCnyZCo="))
+      );
 
+      // app.UseHttpsRedirection();
       app.UseDefaultFiles(); // will look in our wwwroot file for an index.html
       app.UseStaticFiles(); // needs to come before UseRouting
 
