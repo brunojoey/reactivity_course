@@ -8,6 +8,7 @@ import { RootStoreContext } from "../../app/stores/rootStore";
 import { combineValidators, isRequired } from "revalidate";
 import ErrorMessage from "../../app/common/form/ErrorMessage";
 import SocialLogin from "./SocialLogin";
+import { observer } from 'mobx-react-lite';
 
 const validate = combineValidators({
   email: isRequired("Email"),
@@ -16,7 +17,7 @@ const validate = combineValidators({
 
 const LoginForm = () => {
   const rootStore = useContext(RootStoreContext);
-  const { login, fbLogin } = rootStore.userStore;
+  const { login, fbLogin, loading } = rootStore.userStore;
 
   return (
     <FinalForm
@@ -55,11 +56,11 @@ const LoginForm = () => {
             fluid
           />
           <Divider horizontal> Or </Divider>
-          <SocialLogin fbCallback={fbLogin} />
+          <SocialLogin loading={loading} fbCallback={fbLogin} />
         </Form>
       )}
     />
   );
 };
 
-export default LoginForm;
+export default observer(LoginForm);
