@@ -28,5 +28,12 @@ namespace API.Controllers
             var user = await Mediator.Send(new CurrentUser.Query());
             return user;
         }
+
+        [AllowAnonymous] // Not expecting a user to authenticate when loggin in
+        [HttpPost("facebook")]
+        public async Task<ActionResult<User>> FacebookLogin(ExternalLogin.Query query)
+        {
+            return await Mediator.Send(query);
+        }
     }
 }

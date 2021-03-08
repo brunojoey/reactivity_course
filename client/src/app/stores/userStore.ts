@@ -55,5 +55,15 @@ export default class UserStore {
     this.user = null;
     history.push('/');
   };
+
+  @action fbLogin = async (response: any) => {
+    console.log('response', response); // what we'll get back from facebook, and seeing what it actually is
+    try {
+      const user = await agent.User.fbLogin(response.accessToken);
+      console.log('user', user);
+    } catch (error) {
+      throw error;
+    }
+  }
 };
 
