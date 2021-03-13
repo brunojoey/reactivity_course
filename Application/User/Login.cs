@@ -50,18 +50,16 @@ namespace Application.User
         if (user == null)
           throw new RestException(HttpStatusCode.Unauthorized);
 
+        if (!user.EmailConfirmed) throw new RestException(HttpStatusCode.BadRequest, new {Email = "Email is not Confirmed"});
+
         var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
         if (result.Succeeded)
         {
-          // Eventually: Generate Token to user
-          return new User
-          {
-            DisplayName = user.DisplayName,
-            Token = _jwtGenerator.CreateToken(user),
-            Username = user.UserName,
-            Image = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
-          };
+          var refreshToken = _jwtGenerator.GenerateRefreshToken();
+          user.RefreshTokens.Add(refreshToken);
+          await _userManager.UpdateAsync(user);
+          return new User(user, _jwtGenerator, refreshToken.Token);
         }
         throw new RestException(HttpStatusCode.Unauthorized);
       }

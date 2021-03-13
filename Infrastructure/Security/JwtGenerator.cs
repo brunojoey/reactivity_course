@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using Application.Interfaces;
 using Domain;
@@ -34,7 +35,7 @@ namespace Infrastructure.Security
         {
             // All descriptions of the JWT Token.
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(30), // Token will expire in 30 minutes after use
+            Expires = DateTime.UtcNow.AddMinutes(15), // Token will expire in 15 minutes after use
             SigningCredentials = creds
         };
 
@@ -44,7 +45,16 @@ namespace Infrastructure.Security
         var token = tokenHandler.CreateToken(tokenDescriptor);
         
         return tokenHandler.WriteToken(token);
+    }
 
+    public RefreshToken GenerateRefreshToken()
+    {
+        var randomNumber = new byte[32];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(randomNumber);
+        return new RefreshToken {
+            Token = Convert.ToBase64String(randomNumber)
+        };   
     }
   }
 }

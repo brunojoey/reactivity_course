@@ -127,7 +127,7 @@
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[6.1.1, )"
+              "version": "[7.0.0, )"
             },
             "FluentValidation.AspNetCore": {
               "target": "Package",
@@ -135,7 +135,7 @@
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -256,6 +256,10 @@
             "CloudinaryDotNet": {
               "target": "Package",
               "version": "[1.8.0, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.20.0, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

@@ -9,6 +9,7 @@ using Application.Profiles;
 using AutoMapper;
 using Domain;
 using FluentValidation.AspNetCore;
+using Infrastructure.Email;
 using Infrastructure.Photos;
 using Infrastructure.Security;
 using MediatR;
@@ -72,10 +73,14 @@ namespace API
           });
 
       // AddIdentityCore because we can add what we need but it will still Identity App User
-      var builder = services.AddIdentityCore<AppUser>();
+      var builder = services.AddIdentityCore<AppUser>(options => 
+      {
+        options.SignIn.RequireConfirmedEmail = true;
+      });
       var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
       identityBuilder.AddEntityFrameworkStores<DataContext>();
       identityBuilder.AddSignInManager<SignInManager<AppUser>>();
+      identityBuilder.AddDefaultTokenProviders();
 
       services.AddAuthorization(opt =>
       {
@@ -99,7 +104,7 @@ namespace API
               ValidateAudience = false,
               ValidateIssuer = false,
               ValidateLifetime = true,
-              ClockSkew = TimeSpan.Zero // after our token expires, it will redirect to a "You aren't authorized message
+              ClockSkew = TimeSpan.Zero // after our token expires, it will redirect to a "You aren't authorized message"
             };
             opt.Events = new JwtBearerEvents
             {
@@ -141,8 +146,10 @@ namespace API
       services.AddScoped<IPhotoAccessor, PhotoAccessor>();
       services.AddScoped<IProfileReader, ProfileReader>(); // We can inject our ProfileReader in other classes
       services.AddScoped<IFacebookAccessor, FacebookAcessor>();
+      services.AddScoped<IEmailSender, EmailSender>();
       services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
       services.Configure<FacebookAppSettings>(Configuration.GetSection("Authentication:Facebook"));
+      services.Configure<SendGridSettings>(Configuration.GetSection("SendGrid")); // needs to match user-secrets SendGrid
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
