@@ -9,9 +9,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0"/>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0"/>
     <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="2.0.0"/>
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0"/>
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UserSecretsId>5e030536-5ab4-4a30-ab70-438473783085</UserSecretsId>
   </PropertyGroup>
 </Project>

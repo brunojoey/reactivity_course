@@ -78,7 +78,7 @@ export default class ProfileStore {
   @action editProfile = async (profile: Partial<IProfile>) => {
     try {
       await agent.Profiles.editProfile(profile); // method to call up to the API
-      runInAction("edit profile", () => {
+      runInAction(() => {
         // checking if the display name has been updated by comparing it with the user store display name
         // if updated, we want to update the display name in here
         if (profile.displayName !== this.rootStore.userStore.user!.displayName) {

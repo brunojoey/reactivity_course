@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210310165936_RefreshToken")]
+    [Migration("20210315163150_RefreshToken")]
     partial class RefreshToken
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

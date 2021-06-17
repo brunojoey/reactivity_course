@@ -91,7 +91,7 @@ export default class ActivityStore {
 
       // when we receive a comment
       this.hubConnection.on('ReceiveComment', comment => {
-        runInAction("Receiving Comments", () => {
+        runInAction(() => {
           this.activity!.comments.push(comment);
         });
       })
@@ -147,7 +147,7 @@ export default class ActivityStore {
     try {
       const activitiesEnvelope = await agent.Activities.list(this.axiosParams);
       const {activities, activityCount} = activitiesEnvelope;
-      runInAction("load activities", () => {
+      runInAction(() => {
         activities.forEach((activity) => {
           setActivityProps(activity, this.rootStore.userStore.user!);
           this.activityRegistry.set(activity.id, activity); // to match with the observable activities
@@ -156,7 +156,7 @@ export default class ActivityStore {
         this.loadingInitial = false;
       });
     } catch (error) {
-      runInAction("load activities errors", () => {
+      runInAction(() => {
         this.loadingInitial = false;
       });
       console.log("error", error);
@@ -175,7 +175,7 @@ export default class ActivityStore {
       this.loadingInitial = true;
       try {
         activity = await agent.Activities.details(id);
-        runInAction("getting activity", () => {
+        runInAction(() => {
           setActivityProps(activity, this.rootStore.userStore.user!);
           this.activity = activity;
           this.activityRegistry.set(activity.id, activity); // to match with the observable activities
@@ -183,7 +183,7 @@ export default class ActivityStore {
         });
         return activity;
       } catch (error) {
-        runInAction("getting activity error", () => {
+        runInAction(() => {
           this.loadingInitial = false;
         });
         console.log("error", error);
@@ -211,13 +211,13 @@ export default class ActivityStore {
       activity.attendees = attendees;
       activity.comments = []; // in order to create a new activity, then also add comments
       activity.isHost = true; // sets the flag for immediate submit
-      runInAction("create activity", () => {
+      runInAction(() => {
         this.activityRegistry.set(activity.id, activity); // to match with the observable activities
         this.submitting = false;
       });
       history.push(`/activities/${activity.id}`);
     } catch (error) {
-      runInAction("create activity error", () => {
+      runInAction(() => {
         this.submitting = false;
       });
       toast.error("Problem Submitting Data");
@@ -229,14 +229,14 @@ export default class ActivityStore {
     this.submitting = true;
     try {
       await agent.Activities.update(activity);
-      runInAction("edit activity", () => {
+      runInAction(() => {
         this.activityRegistry.set(activity.id, activity);
         this.activity = activity;
         this.submitting = false;
       });
       history.push(`/activities/${activity.id}`);
     } catch (error) {
-      runInAction("edit activity error", () => {
+      runInAction(() => {
         this.submitting = false;
       });
       console.log("error", error);
@@ -251,13 +251,13 @@ export default class ActivityStore {
     this.target = event.currentTarget.name;
     try {
       await agent.Activities.delete(id);
-      runInAction("delete activity", () => {
+      runInAction(() => {
         this.activityRegistry.delete(id);
         this.submitting = false;
         this.target = "";
       });
     } catch (error) {
-      runInAction("delete activity error", () => {
+      runInAction(() => {
         this.submitting = false;
         this.target = "";
       });

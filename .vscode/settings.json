@@ -17,7 +17,7 @@
                 "name": "Linux",
                 "description": "SFTP folder",
 
-                "host": "159.203.83.63", "port": 22,
+                "host": "165.227.208.48", "port": 22,
                 "user": "root", "password": "e4%Y1?8!l1a",
 
                 "dir": "/var/reactivity_course",

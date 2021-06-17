@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E7djQXGbZOT6PvcZTLdr+/Bhloo52Rv39ES/KjrODC6fdICkGGcQY09Wi4ydPODG6l66mPlrB2tK02aaMzu+Fw==",
+  "dgSpecHash": "aZBpUOBJmbst2wzCBJm22iwfXgm/STDH7paYipGkGgFUvEqrUkmPnLGvNwZWK9Xet9kcesRVMgg/E/bgC47H2g==",
   "success": true,
   "projectFilePath": "/Users/josephbruno/reactivity_course/API/API.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.http.features/2.0.2/microsoft.aspnetcore.http.features.2.0.2.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/3.0.0/microsoft.aspnetcore.identity.entityframeworkcore.3.0.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.aspnetcore.identity.ui/3.0.0/microsoft.aspnetcore.identity.ui.3.0.0.nupkg.sha512",
+    "/Users/josephbruno/.nuget/packages/microsoft.bcl.asyncinterfaces/5.0.0/microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.csharp/4.6.0/microsoft.csharp.4.6.0.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.data.sqlclient/1.0.19249.1/microsoft.data.sqlclient.1.0.19249.1.nupkg.sha512",
     "/Users/josephbruno/.nuget/packages/microsoft.data.sqlite.core/3.0.0/microsoft.data.sqlite.core.3.0.0.nupkg.sha512",
